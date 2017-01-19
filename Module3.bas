@@ -15,7 +15,7 @@ Else
     Range("A:AS").EntireColumn.Hidden = 0
 End If
 End Sub
-Function compareStr(add1, add2, criteria) '±È¶ÔÁ½¸ö×Ö·û´®ÊÇ¶¼º¬ÓĞÌØ¶¨×Ö
+Function compareStr(add1, add2, criteria) 'æ¯”å¯¹ä¸¤ä¸ªå­—ç¬¦ä¸²æ˜¯éƒ½å«æœ‰ç‰¹å®šå­—
 On Error GoTo err
 compareStr = False
 str1 = Right(Split(add1, criteria)(0), 2)
@@ -25,8 +25,7 @@ str2 = Right(Split(add2, criteria)(0), 2)
 ' End If
  If (add1 Like ("*" & str2 & "*")) And Not add2 = Split(add2, criteria)(0) Then
  compareStr = True
- End If
- If (add2 Like ("*" & str1 & "*")) And Not add1 = Split(add1, criteria)(0) Then
+    elseIf (add2 Like ("*" & str1 & "*")) And Not add1 = Split(add1, criteria)(0) Then
  compareStr = True
  End If
  
@@ -34,102 +33,103 @@ Exit Function
 err:
 compareStr = False
 End Function
-Function checkAdd(add1, add2)
+    
+    Function checkAdd(add1, add2)'addresscheck rules
 On Error GoTo err
 checkAdd = False
  '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "´å") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "æ‘") Then
    checkAdd = True
    Exit Function
  End If
  '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "Éç") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "ç¤¾") Then
    checkAdd = True
    Exit Function
  End If
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "ÌÁ") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å¡˜") Then
    checkAdd = True
    Exit Function
  End If
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "Ô·") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "è‹‘") Then
    checkAdd = True
    Exit Function
  End If
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¼ÒÔ°") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å®¶å›­") Then
    checkAdd = True
    Exit Function
  End If
  ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¾ÓÎ¯»á") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å±…å§”ä¼š") Then
    checkAdd = True
    Exit Function
  End If
   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¹«Ô¢") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å…¬å¯“") Then
    checkAdd = True
    Exit Function
  End If
   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "»ªÍ¥") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "ååº­") Then
    checkAdd = True
    Exit Function
  End If
    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "´óÏÃ") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å¤§å¦") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¹¤ÒµÔ°") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å·¥ä¸šå›­") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "»¨Ô°") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "èŠ±å›­") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Õò") And compareStr(add1, add2, "´å") Then
+ If compareStr(add1, add2, "é•‡") And compareStr(add1, add2, "æ‘") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Õò") And compareStr(add1, add2, "¹¤ÒµÇø") Then
+ If compareStr(add1, add2, "é•‡") And compareStr(add1, add2, "å·¥ä¸šåŒº") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Õò") And compareStr(add1, add2, "¿Æ¼¼") Then
+ If compareStr(add1, add2, "é•‡") And compareStr(add1, add2, "ç§‘æŠ€") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¿Æ¼¼") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "ç§‘æŠ€") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Õò") And compareStr(add1, add2, "×¯") Then
+ If compareStr(add1, add2, "é•‡") And compareStr(add1, add2, "åº„") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "×¯") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "åº„") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "¹ã³¡") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å¹¿åœº") Then
    checkAdd = True
    Exit Function
  End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
- If compareStr(add1, add2, "Çø") And compareStr(add1, add2, "ÉÌÒµÖĞĞÄ") Then
+ If compareStr(add1, add2, "åŒº") And compareStr(add1, add2, "å•†ä¸šä¸­å¿ƒ") Then
    checkAdd = True
    Exit Function
  End If
@@ -139,11 +139,11 @@ err:
 checkAdd = False
 End Function
 Sub TEST()
-str1 = "É½¶«Ê¡ÁÙÒÊÊĞÀ¼É½Çø½ğÈ¸É½Â·159ºÅ½ğÑô´óÏÃ"
+str1 = "å±±ä¸œçœä¸´æ²‚å¸‚å…°å±±åŒºé‡‘é›€å±±è·¯159å·é‡‘é˜³å¤§å¦"
 
-str2 = "É½¶«ÁÙÒÊÀ¼É½ÇøÀ¼É½°ìÊÂ´¦ÁÙÎ÷ÈıÂ·Óë½ğÒ»Â·½»»ã½ğÑô´óÏÃB×ù201ÊÒ"
+str2 = "å±±ä¸œä¸´æ²‚å…°å±±åŒºå…°å±±åŠäº‹å¤„ä¸´è¥¿ä¸‰è·¯ä¸é‡‘ä¸€è·¯äº¤æ±‡é‡‘é˜³å¤§å¦Båº§201å®¤"
 
-MsgBox compareStr(str1, str2, "´å")
+MsgBox compareStr(str1, str2, "æ‘")
 End Sub
 
 Sub docheckadd()
@@ -157,11 +157,11 @@ str1 = Cells(i, 7)
 str2 = Cells(i, 8)
 str3 = Cells(i, 9)
 str4 = Cells(i, 11) & Cells(i, 10)
-If Cells(i, 6) = "a.ÏÖ¾Ó×¡µØÖ·" Then
+If Cells(i, 6) = "a.ç°å±…ä½åœ°å€" Then
 result = checkAdd(str1, str4)
-ElseIf Cells(i, 6) = "b.¹¤×÷µØÖ·" Then
+ElseIf Cells(i, 6) = "b.å·¥ä½œåœ°å€" Then
 result = checkAdd(str2, str4)
-ElseIf Cells(i, 6) = "e.»§¼®µØÖ·" Then
+ElseIf Cells(i, 6) = "e.æˆ·ç±åœ°å€" Then
 result = checkAdd(str3, str4)
 Else
 result = False
@@ -173,20 +173,20 @@ End If
 UserForm1.ProgressBar1.Value = i / totalrow * 100
 Next i
 UserForm1.Hide
-MsgBox "µÇ¼ÇÁË" & k & "Ìõ¼ÇÂ¼£¬¶ÔÓÚÎÒÔİÊ±²»ÄÜÅĞ¶ÏÎªÕıÈ·µÄ¾ÍÁô¿ÕÁË£¬ĞèÒªÄãÃÇÈËÀà×ÔĞĞºË¶Ô¡£"
+MsgBox "ç™»è®°äº†" & k & "æ¡è®°å½•ï¼Œå¯¹äºæˆ‘æš‚æ—¶ä¸èƒ½åˆ¤æ–­ä¸ºæ­£ç¡®çš„å°±ç•™ç©ºäº†ï¼Œéœ€è¦ä½ ä»¬äººç±»è‡ªè¡Œæ ¸å¯¹ã€‚"
 Unload UserForm1
 Exit Sub
 err:
 Application.StatusBar = ""
 UserForm1.Hide
 Unload UserForm1
-MsgBox "Ã»ÓĞÖ´ĞĞÈÎÎñ£¬ÒòÎªÕâ¿ÉÄÜ²»ÊÇÎÒÒª¼ì²éµÄ±í¸ñ¡£"
+MsgBox "æ²¡æœ‰æ‰§è¡Œä»»åŠ¡ï¼Œå› ä¸ºè¿™å¯èƒ½ä¸æ˜¯æˆ‘è¦æ£€æŸ¥çš„è¡¨æ ¼ã€‚"
 
 End Sub
 Sub dcheck()
 On Error GoTo err
 Start = Timer
-Application.StatusBar = "ÕıÔÚÊ¹ÓÃ°²¼ªÀòÄÈºé»ÄÖ®Á¦Æ´Ãü¼ì²é......"
+Application.StatusBar = "æ­£åœ¨ä½¿ç”¨å®‰å‰è‰å¨œæ´ªè’ä¹‹åŠ›æ‹¼å‘½æ£€æŸ¥......"
 Dim x, y
 x = sols(2)
 y = sols(27)
@@ -205,13 +205,13 @@ Unload UserForm1
 
 Total = Timer - Start
 Application.StatusBar = ""
-MsgBox "³É¹¦Íê³ÉÁËÈÎÎñ£¡ºÄÊ±£º" & Total & "Ãë¡£"
+MsgBox "æˆåŠŸå®Œæˆäº†ä»»åŠ¡ï¼è€—æ—¶ï¼š" & Total & "ç§’ã€‚"
 Exit Sub
 err:
 Application.StatusBar = ""
 UserForm1.Hide
 Unload UserForm1
-MsgBox "Ã»ÓĞÖ´ĞĞÈÎÎñ£¬ÒòÎªÕâ¿ÉÄÜ²»ÊÇÎÒÒª¼ì²éµÄ±í¸ñ¡£"
+MsgBox "æ²¡æœ‰æ‰§è¡Œä»»åŠ¡ï¼Œå› ä¸ºè¿™å¯èƒ½ä¸æ˜¯æˆ‘è¦æ£€æŸ¥çš„è¡¨æ ¼ã€‚"
 End Sub
 Function maxRow(col As Integer) 'get max row index
     r = ActiveWorkbook.ActiveSheet.Cells(65536, col).End(xlUp).Row
@@ -222,23 +222,23 @@ Function sols(col As Integer) 'get sole values of the very column
     Dim i As Integer, r As Integer
     Dim str As String
     r = ActiveWorkbook.ActiveSheet.Cells(65536, col).End(xlUp).Row
-    If r = 1 Then Exit Function 'Èç¹ûµÚÒ»ÁĞÃ»ÓĞÊı¾İÄÇÃ´ÍË³ö³ÌĞò
-    Set Dic = CreateObject("scripting.dictionary")  '´´½¨×Öµä¶ÔÏó
-    For i = 1 To r              '½«µÚÒ»ÁĞÊı¾İÌí¼Óµ½×ÖµäµÄkeyÖµÖĞ
+    If r = 1 Then Exit Function 'å¦‚æœç¬¬ä¸€åˆ—æ²¡æœ‰æ•°æ®é‚£ä¹ˆé€€å‡ºç¨‹åº
+    Set Dic = CreateObject("scripting.dictionary")  'åˆ›å»ºå­—å…¸å¯¹è±¡
+    For i = 1 To r              'å°†ç¬¬ä¸€åˆ—æ•°æ®æ·»åŠ åˆ°å­—å…¸çš„keyå€¼ä¸­
         Dic(CStr(Cells(i, col))) = ""
     Next
-    sols = Dic.keys              '·µ»Ø×ÖµäkeyµÄÊı×é
-    Set Dic = Nothing           'Ïú»Ù¶ÔÏó
+    sols = Dic.keys              'è¿”å›å­—å…¸keyçš„æ•°ç»„
+    Set Dic = Nothing           'é”€æ¯å¯¹è±¡
 End Function
 Function sameRows(col As Integer, str As String) 'get row numbers of the same values
 On Error Resume Next
     Dim Dic
     Dim i As Integer, r As Integer
     r = ActiveWorkbook.ActiveSheet.Cells(65536, col).End(xlUp).Row
-    If r = 1 Then Exit Function 'Èç¹ûµÚÒ»ÁĞÃ»ÓĞÊı¾İÄÇÃ´ÍË³ö³ÌĞò
+    If r = 1 Then Exit Function 'å¦‚æœç¬¬ä¸€åˆ—æ²¡æœ‰æ•°æ®é‚£ä¹ˆé€€å‡ºç¨‹åº
     'r = UBound(arr())
-    Set Dic = CreateObject("scripting.dictionary")  '´´½¨×Öµä¶ÔÏó
-    For i = 1 To r              '½«µÚÒ»ÁĞÊı¾İÌí¼Óµ½×ÖµäµÄkeyÖµÖĞ
+    Set Dic = CreateObject("scripting.dictionary")  'åˆ›å»ºå­—å…¸å¯¹è±¡
+    For i = 1 To r              'å°†ç¬¬ä¸€åˆ—æ•°æ®æ·»åŠ åˆ°å­—å…¸çš„keyå€¼ä¸­
       If Cells(i, col) = str Then
         Dic(CStr(i)) = ""
       End If
@@ -246,12 +246,12 @@ On Error Resume Next
         sameRows = Dic.keys
     Set Dic = Nothing
 End Function
-Function d(lcs, theday) '»ñÈ¡Ä³×¨Ô±Ä³ÌìÇ©µ½ËùÓĞĞĞºÅ
+Function d(lcs, theday) 'è·å–æŸä¸“å‘˜æŸå¤©ç­¾åˆ°æ‰€æœ‰è¡Œå·
 Dim rownums(), Dic
 rownums = sameRows(2, CStr(lcs))
 r = UBound(rownums())
-    Set Dic = CreateObject("scripting.dictionary")  '´´½¨×Öµä¶ÔÏó
-    For i = 0 To r              '½«µÚÒ»ÁĞÊı¾İÌí¼Óµ½×ÖµäµÄkeyÖµÖĞ
+    Set Dic = CreateObject("scripting.dictionary")  'åˆ›å»ºå­—å…¸å¯¹è±¡
+    For i = 0 To r              'å°†ç¬¬ä¸€åˆ—æ•°æ®æ·»åŠ åˆ°å­—å…¸çš„keyå€¼ä¸­
       If CStr(Cells(rownums(i), 27)) = theday Then
         Dic(CStr(rownums(i))) = ""
       End If
@@ -264,8 +264,8 @@ Sub doCheckDevice(lcsIndex, theDayIndex) 'check the very lcs' device of the day
 Dim Dic
 rownums = d(sols(2)(lcsIndex), sols(27)(theDayIndex))
 r = UBound(rownums)
-    Set Dic = CreateObject("scripting.dictionary")  '´´½¨×Öµä¶ÔÏó
-    For i = 0 To r              '½«µÚÒ»ÁĞÊı¾İÌí¼Óµ½×ÖµäµÄkeyÖµÖĞ
+    Set Dic = CreateObject("scripting.dictionary")  'åˆ›å»ºå­—å…¸å¯¹è±¡
+    For i = 0 To r              'å°†ç¬¬ä¸€åˆ—æ•°æ®æ·»åŠ åˆ°å­—å…¸çš„keyå€¼ä¸­
         Dic(CStr(Cells(rownums(i), 12))) = ""
     Next
 devicecode = Dic.keys
